@@ -111,7 +111,9 @@ public class SellerDaoJDBC implements SellerDao {
 					+ "ON seller.DepartmentId = department.Id "
 					+ "WHERE seller.Id = ?");
 			st.setInt(1, id);
+			
 			rs = st.executeQuery();
+			
 			if (rs.next()) {
 				Department dep = instantiateDepartment(rs);
 				Seller obj = instantiateSeller(rs, dep);
